@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    --webkit-font-smoothing: antialiased;
+    --moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    font-size: 62.5%;
+    
+    --color-base-white: hsl(0, 0%, 100%);
+    --color-base-light-blue: hsl(195, 46%, 40%);
+    --color-base-blue: hsl(195, 91%, 25%);
+    --color-base-blue-900: hsl(195, 88%, 19%);
+    --color-base-gray-900: hsl(240, 5%, 7%);
+    --color-base-gray-700: hsl(240, 6%, 13%);
+}
+
+html, body, footer, input {
+    font-family: 'Mulish', sans-serif;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+header {
+    display: flex;
+}
+
+main, sidebar, footer {    
+    display: flex;
+    flex-direction: column;
+}
+
+#app header {
+    grid-area: A;
+    width: 100%;
+    background-color: var(--color-base-blue);
+}
+
+.container {
+    padding: 1.6rem 12.2rem;   
+    width: min(112rem, 100%);
+    margin: auto;
+    gap: 1.6rem;
+}
+
+header form {
+    flex: 1;
+}
+
+.logo-border {
+    display: flex;
+    background-color: var(--color-base-white);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+
+.logo {
+    place-content: center;
+    margin: .8rem;
+    width: 2.4rem;
+    height: 2rem;
+}
+
+.input-wrapper label {
+    width: 1px;
+    height: 1px;
+
+    overflow: hidden;
+    position: absolute;
+}
+
+.input-wrapper input {
+    width: 100%;
+    min-width: 24rem;
+    padding: 1.6rem;
+
+    font-weight: 600;
+
+    background-color: var(--color-base-light-blue);
+    border: 0;
+    border-radius: .4rem;
+}
+
+.input-wrapper input::placeholder {
+    opacity: 0.56;
+
+    font-size: 1.6rem;
+    color: var(--color-base-white);
+}
+
+.input-wrapper input:hover {
+    background-color: var(--color-base-blue-900);
+}
+
+.avatar {
+    height: 4rem;
+    width: 4rem;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+#app main {
+    grid-area: B;  
+
+    max-width: 80rem;
+}
+
+img:hover {
+    filter: hue-rotate(8deg) contrast(101%) saturate(200%);
+}
+
+.master {
+    margin-bottom: 3.4rem;
+}
+
+.master,
+.secundary{
+    margin-inline: auto;
+    padding: 0 2.4rem;
+}
+
+.cat1 {
+    display: flex;
+    width: 100%;
+
+    max-width: 80rem;
+    margin-inline: auto;
+    margin-bottom: 3rem;
+}
+
+main h1 {
+    margin-bottom: .8rem;
+}
+
+h1 {
+    display: flex;
+
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.button {
+    display: flex;
+
+    margin-bottom: 3rem;
+    gap: 1.2rem;
+}
+
+button {
+    background-color: var(--color-base-blue);
+    display: flex;
+    place-content: center;
+
+    width: 4rem;
+    height: 4rem;
+
+    border: 0;
+    border-radius: 50%;
+}
+
+button:hover {
+    width: 4.4rem;
+    height: 4.4rem;
+}
+
+button img {
+    padding: 1.2rem;
+}
+
+.master p {
+    width: 100%;
+
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+#app sidebar {
+    grid-area: C;
+}
+
+.secundary {
+    max-width: 38.4rem;
+
+    margin-inline: auto;
+    margin-bottom: 4rem;
+}
+
+.secundary img {
+    width: 15rem;
+    height: 8.4rem;
+
+    transition: all 150ms ease-in-out;
+}
+
+.secundary img:hover {
+    transform: scale(1.1) rotate(-2deg);
+}
+
+.secundary p {
+    font-size: 1.4rem;
+}
+
+sidebar h1 {
+    margin: 3.2rem auto 3.2rem;
+}
+
+section {
+    display: flex;
+
+    width: 100%;
+    gap: 1.6rem;
+}
+
+section + section {
+    margin-top: 3.2rem;
+}
+
+.text h2{
+    display: block;
+    font-size: 1.8rem;
+}
+
+section h2 {
+    display: block;
+}
+
+#app footer {
+    grid-area: D;
+
+    background-color: var(--color-base-blue);
+}
+
+footer {
+    display: block;
+    text-align: center;
+
+    padding: 2.6rem 1.6rem;
+}
+
+@media (min-width: 770px) {
+    #app {
+    display: grid;
+    grid-template-areas:
+     "A A A" 
+     "B B C" 
+     "D D D";
+
+    grid-template-rows: max-content 1fr max-content;
+
+    height: 100%;
+    gap: 4rem;
+    }
+    
+    main {
+        margin-left: 30rem;
+    }
+
+    sidebar {
+        margin-right: 30rem;
+    }
+    
+   .start {
+    display: flex;
+    justify-content: space-between;
+   }
+}
+
+.item{
+    --delay: .4s;
+    animation: appear .4s var(--delay) backwards;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+                                                                            
+    50% {
+        transform: scale(1.1);
+    }
+}
